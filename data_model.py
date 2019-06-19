@@ -31,6 +31,9 @@ class Country:
 
     @staticmethod
     def fromJson(data):
+        '''
+            Builds a Country object from deserialized JSON data i.e. Dict<K, V>
+        '''
         _country = Country(*[None]*19)
         for key, value in data.items():
             if(key == 'iso'):
@@ -75,8 +78,38 @@ class Country:
 
 
 class CountryList:
-    def __init__(self, country):
-        self.country = country
+    '''
+        Holds record of all countries, helps in enquiring country record by using several properties
+    '''
+
+    def __init__(self, allCountry):
+        self.allCountry = allCountry
+
+    def getCountryByISO(self, iso):
+        '''
+            Gets record of a country by its ISO2 code.
+
+            If no record is found, simply returns None.
+        '''
+        target = None
+        for i in self.allCountry:
+            if(i.iso == iso):
+                target = i
+                break
+        return target
+
+    @staticmethod
+    def fromJson(data):
+        '''
+            Builds a CountryList object from deserialized JSON data i.e. List<Dict<K, V>>
+        '''
+        _countryList = CountryList([])
+        for i in data:
+            _countryList.allCountry.append(Country.fromJson(i))
+        for i in _countryList.allCountry:
+            i.neighbours = [_countryList.getCountryByISO(
+                j) for j in i.neighbours]  # fetches Country record from already processed CountryList in puts in neighbours list
+        return _countryList
 
 
 def importIt(target_file='country.json'):
@@ -84,7 +117,7 @@ def importIt(target_file='country.json'):
         Reads from JSON file and deserializes data back to python objects
     '''
     with open(target_file, mode='r') as fd:
-        print(loads(fd.read()))
+        return CountryList.fromJson(loads(fd.read()))
 
 
 if __name__ == '__main__':
