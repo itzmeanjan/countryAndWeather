@@ -2,6 +2,9 @@
 
 from sys import argv
 from country import build
+from model.country import importIt as countryImport
+from model.language import importIt as languageImport
+from model.language import Language
 
 
 def __argument_fetcher__():
@@ -12,8 +15,20 @@ def __argument_fetcher__():
 
 
 def __show_usage__():
-    print('[+]Usage ::\n\n\tBuild Country Info : ./{} build\n'.format(argv[0]))
+    print('[+]Usage ::\n\n\tBuild Country Info : country build\n'.format(argv[0]))
     return
+
+
+def __merge__():
+    countryData = countryImport()
+    languageData = languageImport()
+    if((not countryData) or (not languageData)):
+        return None
+    for i in countryData.allCountry:
+        i.languages = [None if(len(j) == 0) else languageData.getLanguageByISO(
+            j.lower()) if(len(j) == 2) else languageData.getLanguageByISO3(j.lower()) if(len(j) == 3) else Language.copyFrom(languageData.getLanguageByISO(
+                j[:2].lower()), countryData.getCountryByISO(j[3:]).country) for j in i.languages]
+    return countryData
 
 
 def app():

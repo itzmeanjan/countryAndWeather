@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 
 from json import loads
+from os.path import abspath, dirname, join
 
 
 class Country:
     '''
-        This class will hold information for a certain country
+        This class will hold information about a certain country
     '''
 
     def __init__(self, iso, iso3, isoNumeric, fips, country, capital, area, population, continent, tld, currencyCode, currencyName, phone, postalFormat, postalRegex, languages, geonameId, neighbours, equivalentFips):
@@ -48,7 +49,7 @@ class Country:
                 _country.country = value
             elif(key == 'capital'):
                 _country.capital = value
-            elif(key == 'area'):
+            elif(key == 'area(in sq km)'):
                 _country.area = value
             elif(key == 'population'):
                 _country.population = value
@@ -92,6 +93,8 @@ class CountryList:
             If no record is found, simply returns None.
         '''
         target = None
+        if(not iso):
+            return target
         for i in self.allCountry:
             if(i.iso == iso):
                 target = i
@@ -112,12 +115,15 @@ class CountryList:
         return _countryList
 
 
-def importIt(target_file='country.json'):
+def importIt(target_file=abspath(join(dirname(__file__), '../country.json'))):
     '''
         Reads from JSON file and deserializes data back to python objects
     '''
-    with open(target_file, mode='r') as fd:
-        return CountryList.fromJson(loads(fd.read()))
+    try:
+        with open(abspath(target_file), mode='r') as fd:
+            return CountryList.fromJson(loads(fd.read()))
+    except Exception:
+        return None
 
 
 if __name__ == '__main__':
