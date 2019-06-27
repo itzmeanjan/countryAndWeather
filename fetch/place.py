@@ -7,7 +7,7 @@ from http.client import HTTPResponse
 from os.path import abspath, exists, join, dirname, realpath
 from os import remove
 from zipfile import ZipFile
-from json import dumps
+from json import dump
 from sys import path
 try:
     path.append(abspath(join(dirname(realpath(__file__)), '../')))
@@ -29,13 +29,8 @@ def __process__(data: str, target_file: str, countryListObj: CountryList) -> boo
     status = False
     try:
         with open(target_file, mode='w') as fd:
-            fd.write(
-                dumps(
-                    [{'geonameid': point[0], 'name': point[1], 'alternateNames': point[3].split(','), 'loc': '{},{}'.format(point[5], point[4]), 'featureClass': point[6], 'featureCode': point[7], 'country': countryListObj.getCountryByISO(point[8].upper()).country, 'cc2': [countryListObj.getCountryByISO(j.upper()).country for j in point[9].split(
-                        ',') if(len(j) != 0)], 'admin1Code': point[10], 'admin2Code': point[11], 'admin3Code': point[12], 'admin4Code': point[13], 'population': point[14], 'elevation': point[15], 'tz': point[17]} for point in (line.split('\t') for line in data.split('\n')[:-1])],
-                    ensure_ascii=False, indent=4
-                )
-            )
+            dump([{'geonameid': point[0], 'name': point[1], 'alternateNames': point[3].split(','), 'loc': '{},{}'.format(point[5], point[4]), 'featureClass': point[6], 'featureCode': point[7], 'country': countryListObj.getCountryByISO(point[8].upper()).country, 'cc2': [countryListObj.getCountryByISO(j.upper()).country for j in point[9].split(
+                ',') if(len(j) != 0)], 'admin1Code': point[10], 'admin2Code': point[11], 'admin3Code': point[12], 'admin4Code': point[13], 'population': point[14], 'elevation': point[15], 'tz': point[17]} for point in (line.split('\t') for line in data.split('\n')[:-1])], fd, ensure_ascii=False, indent=4)
         status = True
     except Exception as e:
         pass
@@ -86,13 +81,16 @@ def __readIt__(response: HTTPResponse) -> bytes:
         Reads data from HTTPResponse object and returns bytes
     '''
     data: bytes = bytes()
-    amt: int = 1024
+    amt: int = 2048
     tmp: bytes = bytes(amt)
     try:
         tmp = response.read(amt)
         if(tmp):
             while(len(tmp) != 0):
                 data += tmp
+                # dynamically changes buffer size, depeding upon result of last read
+                # if last time buffer was full, this time buffer size gets incremented else gets decremented to amount of data read in last read
+                amt = int(len(tmp)*1.5) if len(tmp) == amt else len(tmp)
                 tmp = response.read(amt)
                 if(tmp == None):
                     data = bytes()
@@ -150,5 +148,12 @@ def getAll(iso: str, country: str, url: str, target_file: str, countryListObj: C
 
 
 if __name__ == '__main__':
+    '''
+    If you need to generate places file for any certain country, uncomment this section
+    And run with proper arguments
+
+    print(getAll('UM', 'United States Minor Outlying Islands', 'http://download.geonames.org/export/dump/UM.zip',
+                 abspath('../data/UM.json'), importIt()))
+    '''
     print('[!]This module is expected to be used as a backend handler')
     exit(0)
