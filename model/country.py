@@ -76,3 +76,4 @@ def importIt(target_file: str = abspath(join(dirname(realpath(__file__)), '../da
 
 if __name__ == '__main__':
     print('[!]This module is expected to be used as a back end handler')
+    exit(0)

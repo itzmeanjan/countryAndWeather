@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from __future__ import annotations
 from requests import get
 from json import dump
 from os.path import abspath, join, dirname, exists
@@ -27,6 +28,6 @@ def fetchIt(target_file: str = abspath(join(dirname(__file__), '../data/admin1Co
 
 
 if __name__ == '__main__':
-    print(fetchIt())
+    print('Success' if fetchIt() else 'Failed')
     #print('[!]This module is expected to be used as a backend handler')
     exit(0)
