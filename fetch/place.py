@@ -12,12 +12,14 @@ from sys import path
 try:
     path.append(abspath(join(dirname(realpath(__file__)), '../')))
     from model.country import CountryList
+    from model.admin1code import Admin1CodeList
+    from model.admin2code import Admin2CodeList
 except ImportError as e:
     print('[!]Error : {}'.format(str(e)))
     exit(1)
 
 
-def __process__(data: str, target_file: str, countryListObj: CountryList) -> bool:
+def __process__(data: str, target_file: str, countryListObj: CountryList, admin1CodeListObj: Admin1CodeList, admin2CodeListObj: Admin2CodeList) -> bool:
     '''
         Takes utf-8 string data, after processing and cleaning converts to JSON string,
         which finally gets stored in target file.
@@ -26,11 +28,17 @@ def __process__(data: str, target_file: str, countryListObj: CountryList) -> boo
 
         Returns status of operation as boolean
     '''
+    def __none_object_handler__(noneObject):
+        if(noneObject):
+            return noneObject.name
+        else:
+            return ''
+
     status = False
     try:
         with open(target_file, mode='w') as fd:
             dump([{'geonameid': point[0], 'name': point[1], 'alternateNames': point[3].split(','), 'loc': '{},{}'.format(point[5], point[4]), 'featureClass': point[6], 'featureCode': point[7], 'country': countryListObj.getCountryByISO(point[8].upper()).country, 'cc2': [countryListObj.getCountryByISO(j.upper()).country for j in point[9].split(
-                ',') if(len(j) != 0)], 'admin1Code': point[10], 'admin2Code': point[11], 'admin3Code': point[12], 'admin4Code': point[13], 'population': point[14], 'elevation': point[15], 'tz': point[17]} for point in (line.split('\t') for line in data.split('\n')[:-1])], fd, ensure_ascii=False, indent=4)
+                ',') if(len(j) != 0)], 'admin1Code': __none_object_handler__(admin1CodeListObj.getRecordByCode('{}.{}'.format(point[8].upper(), point[10]))), 'admin2Code': __none_object_handler__(admin2CodeListObj.getRecordByCode('{}.{}.{}'.format(point[8].upper(), point[10], point[11]))), 'population': point[14], 'elevation': point[15], 'tz': point[17]} for point in (line.split('\t') for line in data.split('\n')[:-1])], fd, ensure_ascii=False, indent=4)
         status = True
     except Exception as e:
         pass
@@ -101,7 +109,7 @@ def __readIt__(response: HTTPResponse) -> bytes:
         return data
 
 
-def __get_data__(iso: str, request: Request, target_file: str, countryListObj: CountryList) -> bool:
+def __get_data__(iso: str, request: Request, target_file: str, countryListObj: CountryList, admin1CodeListObj: Admin1CodeList, admin2CodeListObj: Admin2CodeList) -> bool:
     '''
         Does all heavy lifting for fetching places info and storing into JSON file,
         for a certain country
@@ -120,14 +128,14 @@ def __get_data__(iso: str, request: Request, target_file: str, countryListObj: C
                     iso=iso, tmp_file=abspath('./tmp.zip')).decode()
                 if(len(decompressed) != 0):
                     returnVal = __process__(
-                        data=decompressed, target_file=target_file, countryListObj=countryListObj)
+                        data=decompressed, target_file=target_file, countryListObj=countryListObj, admin1CodeListObj=admin1CodeListObj, admin2CodeListObj=admin2CodeListObj)
     except Exception as e:
         pass
     finally:
         return returnVal
 
 
-def getAll(iso: str, country: str, url: str, target_file: str, countryListObj: CountryList) -> Dict(str, str):
+def getAll(iso: str, country: str, url: str, target_file: str, countryListObj: CountryList, admin1CodeListObj: Admin1CodeList, admin2CodeListObj: Admin2CodeList) -> Dict(str, str):
     '''
         Externally you're supposed to invoke this function, which will get JSON formatted places for a certain country.
 
@@ -135,7 +143,7 @@ def getAll(iso: str, country: str, url: str, target_file: str, countryListObj: C
     '''
     status = {'error': 'incomplete'}
     try:
-        if(__get_data__(iso=iso, request=Request(url), target_file=target_file, countryListObj=countryListObj)):
+        if(__get_data__(iso=iso, request=Request(url), target_file=target_file, countryListObj=countryListObj, admin1CodeListObj=admin1CodeListObj, admin2CodeListObj=admin2CodeListObj)):
             status = {'success': 'true'}
         else:
             status = {'success': 'false'}
