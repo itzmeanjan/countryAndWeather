@@ -161,7 +161,8 @@ if __name__ == '__main__':
     And run with proper arguments
 
     print(getAll('UM', 'United States Minor Outlying Islands', 'http://download.geonames.org/export/dump/UM.zip',
-                 abspath('../data/UM.json'), importIt()))
+                 abspath('../data/UM.json'), importIt(), admin1CodeListObj=admin1CodeImport(), admin2CodeListObj=admin2CodeImport()))
+
     '''
     print('[!]This module is expected to be used as a backend handler')
     exit(0)
