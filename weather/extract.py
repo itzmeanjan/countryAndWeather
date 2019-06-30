@@ -14,7 +14,7 @@ except ImportError as e:
     exit(1)
 
 
-def __handle_country__(placeListObj: PlaceList) -> List(Dict(str, str)):
+def __handle_country__(placeListObj: PlaceList) -> List[Dict[str, str]]:
     '''
         Handles all places record under a certain country
         Returns a list of those places which are eligible for receiving weather foecast
