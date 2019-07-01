@@ -10,6 +10,9 @@ from json import dump
 
 
 def __parseLocation__(element: Tag) -> Dict[str, Any]:
+    '''
+        Parses location data, for which we've just received weather forecast
+    '''
     return {
         'name': element.find('name').getText(),
         'type': element.find('type').getText(),
@@ -20,6 +23,9 @@ def __parseLocation__(element: Tag) -> Dict[str, Any]:
 
 
 def __parseMeta__(element: Tag) -> Dict[str, str]:
+    '''
+        Converts lastupdate and nextupdate fields to timestamp
+    '''
     return {
         'lastupdate': parser.parse(element.find('lastupdate').getText()).timestamp(),
         'nextupdate': parser.parse(element.find('nextupdate').getText()).timestamp()
@@ -27,6 +33,9 @@ def __parseMeta__(element: Tag) -> Dict[str, str]:
 
 
 def __parseSunRiseAndSet(element: Tag) -> Dict[str, str]:
+    '''
+        Simply converts time string to timestamp
+    '''
     return {
         'sunrise': parser.parse(element.find('sun').get('rise')).timestamp(),
         'sunset': parser.parse(element.find('sun').get('set')).timestamp()
@@ -34,6 +43,11 @@ def __parseSunRiseAndSet(element: Tag) -> Dict[str, str]:
 
 
 def __parseASingleForecast(element: Tag) -> Dict[str, Any]:
+    '''
+        Will parse a single `time` element, present within `forecast` element.
+
+        __parseAllForecast__() will keep calling this function repeatatively for parsing each `time` element present within `forecast`
+    '''
 
     def __parseTime__(data: Dict[str, str]) -> Dict[str, str]:
         data['from'] = parser.parse(data.get('from', '')).timestamp()
@@ -52,6 +66,9 @@ def __parseASingleForecast(element: Tag) -> Dict[str, Any]:
 
 
 def __parseAllForecast__(element: Tag) -> List[Dict[str, Any]]:
+    '''
+        Companion function to parse `forecast` element in XML forecast response
+    '''
     return [
         __parseASingleForecast(item) for item in element.findAll('time')
     ]
@@ -59,7 +76,7 @@ def __parseAllForecast__(element: Tag) -> List[Dict[str, Any]]:
 
 def __deepParser__(data: str) -> Dict[str, Any]:
     '''
-        Main data parsing from XML to Python Object is done here
+        Main data parsing from XML to Python Object is done here, by help of some companion functions
     '''
     target = {}
     root = BeautifulSoup(data, 'lxml')
@@ -70,7 +87,7 @@ def __deepParser__(data: str) -> Dict[str, Any]:
     return target
 
 
-def parseIt(place: str, url: str) -> Dict[str, Any]:
+def parseIt(url: str) -> Dict[str, Any]:
     '''
         Fetches weather forecast data from provided URL and returns parsed data set, which can be easily JSONified
     '''
@@ -90,7 +107,7 @@ def parseIt(place: str, url: str) -> Dict[str, Any]:
 if __name__ == '__main__':
     try:
         print(parseIt(
-            'Bolpur', 'http://www.yr.no/place/India/West_Bengal/B%C4%ABrbh%C5%ABm/forecast.xml'))
+            'http://www.yr.no/place/India/West_Bengal/B%C4%ABrbh%C5%ABm/forecast.xml'))
     #print('[!]This module is expected to be used as a backend handler')
     except KeyboardInterrupt:
         print('\n[!]Terminated')
