@@ -235,3 +235,12 @@ sys	0m30.560s
     ]
 }
 ```
+### grabbing Weather Forecast :
+
+Time Taken :
+```bash
+real	0m0.452s
+user	0m0.341s
+sys	0m0.012s
+```
+**More coming soon ...**

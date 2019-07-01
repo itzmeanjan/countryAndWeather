@@ -1,0 +1,1173 @@
+{
+    "location": {
+        "name": "Bīrbhūm",
+        "type": "Administrative division",
+        "country": "India",
+        "tz": {
+            "id": "Asia/Kolkata",
+            "utcoffsetminutes": "330"
+        },
+        "loc": {
+            "altitude": "55",
+            "latitude": "24",
+            "longitude": "87.58333",
+            "geobase": "geonames",
+            "geobaseid": "1275525"
+        }
+    },
+    "meta": {
+        "lastupdate": 1561924522.0,
+        "nextupdate": 1561968000.0
+    },
+    "sunrise": 1561937128.0,
+    "sunset": 1561986074.0,
+    "forecast": [
+        {
+            "time": {
+                "from": 1561968000.0,
+                "to": 1561986000.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "0.9",
+            "winddirection": {
+                "deg": "81.6",
+                "code": "E",
+                "name": "East"
+            },
+            "windspeed": {
+                "mps": "3.0",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "30"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.1"
+            }
+        },
+        {
+            "time": {
+                "from": 1561986000.0,
+                "to": 1562007600.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "3.5",
+            "winddirection": {
+                "deg": "71.9",
+                "code": "ENE",
+                "name": "East-northeast"
+            },
+            "windspeed": {
+                "mps": "3.2",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "29"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.3"
+            }
+        },
+        {
+            "time": {
+                "from": 1562007600.0,
+                "to": 1562029200.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.3",
+            "winddirection": {
+                "deg": "87.3",
+                "code": "E",
+                "name": "East"
+            },
+            "windspeed": {
+                "mps": "3.6",
+                "name": "Gentle breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "997.8"
+            }
+        },
+        {
+            "time": {
+                "from": 1562029200.0,
+                "to": 1562050800.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "5",
+                "numberex": "5",
+                "name": "Rain showers",
+                "var": "05d"
+            },
+            "precipitation": "1.2",
+            "winddirection": {
+                "deg": "79.7",
+                "code": "E",
+                "name": "East"
+            },
+            "windspeed": {
+                "mps": "4.3",
+                "name": "Gentle breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "998.5"
+            }
+        },
+        {
+            "time": {
+                "from": 1562050800.0,
+                "to": 1562072400.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "4.5",
+            "winddirection": {
+                "deg": "105.6",
+                "code": "ESE",
+                "name": "East-southeast"
+            },
+            "windspeed": {
+                "mps": "5.4",
+                "name": "Gentle breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "32"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.9"
+            }
+        },
+        {
+            "time": {
+                "from": 1562072400.0,
+                "to": 1562094000.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "4.5",
+            "winddirection": {
+                "deg": "112.6",
+                "code": "ESE",
+                "name": "East-southeast"
+            },
+            "windspeed": {
+                "mps": "4.3",
+                "name": "Gentle breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "28"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.9"
+            }
+        },
+        {
+            "time": {
+                "from": 1562094000.0,
+                "to": 1562115600.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "4",
+                "numberex": "4",
+                "name": "Cloudy",
+                "var": "04"
+            },
+            "precipitation": "0",
+            "winddirection": {
+                "deg": "98.2",
+                "code": "E",
+                "name": "East"
+            },
+            "windspeed": {
+                "mps": "2.5",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "26"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "998.7"
+            }
+        },
+        {
+            "time": {
+                "from": 1562115600.0,
+                "to": 1562137200.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "46",
+                "name": "Light rain",
+                "var": "46"
+            },
+            "precipitation": "0.6",
+            "winddirection": {
+                "deg": "131.8",
+                "code": "SE",
+                "name": "Southeast"
+            },
+            "windspeed": {
+                "mps": "2.6",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "26"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "999.1"
+            }
+        },
+        {
+            "time": {
+                "from": 1562137200.0,
+                "to": 1562158800.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "5",
+                "numberex": "5",
+                "name": "Rain showers",
+                "var": "05d"
+            },
+            "precipitation": "3.2",
+            "winddirection": {
+                "deg": "91.4",
+                "code": "E",
+                "name": "East"
+            },
+            "windspeed": {
+                "mps": "2.5",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "31"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "997.4"
+            }
+        },
+        {
+            "time": {
+                "from": 1562155200.0,
+                "to": 1562176800.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.6",
+            "winddirection": {
+                "deg": "128.9",
+                "code": "SE",
+                "name": "Southeast"
+            },
+            "windspeed": {
+                "mps": "2.1",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "29"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.3"
+            }
+        },
+        {
+            "time": {
+                "from": 1562176800.0,
+                "to": 1562198400.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "10",
+                "numberex": "10",
+                "name": "Heavy rain",
+                "var": "10"
+            },
+            "precipitation": "5.2",
+            "winddirection": {
+                "deg": "72.3",
+                "code": "ENE",
+                "name": "East-northeast"
+            },
+            "windspeed": {
+                "mps": "1.4",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "999.5"
+            }
+        },
+        {
+            "time": {
+                "from": 1562198400.0,
+                "to": 1562220000.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.6",
+            "winddirection": {
+                "deg": "73.6",
+                "code": "ENE",
+                "name": "East-northeast"
+            },
+            "windspeed": {
+                "mps": "1.4",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "26"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "998.5"
+            }
+        },
+        {
+            "time": {
+                "from": 1562220000.0,
+                "to": 1562241600.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "10",
+                "numberex": "10",
+                "name": "Heavy rain",
+                "var": "10"
+            },
+            "precipitation": "7.8",
+            "winddirection": {
+                "deg": "203.4",
+                "code": "SSW",
+                "name": "South-southwest"
+            },
+            "windspeed": {
+                "mps": "1.5",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "30"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "998.1"
+            }
+        },
+        {
+            "time": {
+                "from": 1562241600.0,
+                "to": 1562263200.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.5",
+            "winddirection": {
+                "deg": "191.7",
+                "code": "SSW",
+                "name": "South-southwest"
+            },
+            "windspeed": {
+                "mps": "1.2",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "29"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.0"
+            }
+        },
+        {
+            "time": {
+                "from": 1562263200.0,
+                "to": 1562284800.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.8",
+            "winddirection": {
+                "deg": "132.4",
+                "code": "SE",
+                "name": "Southeast"
+            },
+            "windspeed": {
+                "mps": "1.1",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "998.6"
+            }
+        },
+        {
+            "time": {
+                "from": 1562284800.0,
+                "to": 1562306400.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "46",
+                "name": "Light rain",
+                "var": "46"
+            },
+            "precipitation": "0.6",
+            "winddirection": {
+                "deg": "184.4",
+                "code": "S",
+                "name": "South"
+            },
+            "windspeed": {
+                "mps": "1.1",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.9"
+            }
+        },
+        {
+            "time": {
+                "from": 1562306400.0,
+                "to": 1562328000.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "10",
+                "numberex": "10",
+                "name": "Heavy rain",
+                "var": "10"
+            },
+            "precipitation": "6.7",
+            "winddirection": {
+                "deg": "268.0",
+                "code": "W",
+                "name": "West"
+            },
+            "windspeed": {
+                "mps": "1.2",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "32"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.4"
+            }
+        },
+        {
+            "time": {
+                "from": 1562328000.0,
+                "to": 1562349600.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "46",
+                "name": "Light rain",
+                "var": "46"
+            },
+            "precipitation": "0.9",
+            "winddirection": {
+                "deg": "204.3",
+                "code": "SSW",
+                "name": "South-southwest"
+            },
+            "windspeed": {
+                "mps": "0.9",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "31"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "993.9"
+            }
+        },
+        {
+            "time": {
+                "from": 1562349600.0,
+                "to": 1562371200.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "4",
+                "numberex": "4",
+                "name": "Cloudy",
+                "var": "04"
+            },
+            "precipitation": "0",
+            "winddirection": {
+                "deg": "175.4",
+                "code": "S",
+                "name": "South"
+            },
+            "windspeed": {
+                "mps": "2.5",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "28"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.4"
+            }
+        },
+        {
+            "time": {
+                "from": 1562371200.0,
+                "to": 1562392800.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "4",
+                "numberex": "4",
+                "name": "Cloudy",
+                "var": "04"
+            },
+            "precipitation": "0",
+            "winddirection": {
+                "deg": "264.7",
+                "code": "W",
+                "name": "West"
+            },
+            "windspeed": {
+                "mps": "2.4",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "995.1"
+            }
+        },
+        {
+            "time": {
+                "from": 1562392800.0,
+                "to": 1562414400.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "4.5",
+            "winddirection": {
+                "deg": "277.2",
+                "code": "W",
+                "name": "West"
+            },
+            "windspeed": {
+                "mps": "2.6",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "33"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "995.1"
+            }
+        },
+        {
+            "time": {
+                "from": 1562414400.0,
+                "to": 1562436000.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "4",
+                "numberex": "4",
+                "name": "Cloudy",
+                "var": "04"
+            },
+            "precipitation": "0",
+            "winddirection": {
+                "deg": "178.9",
+                "code": "S",
+                "name": "South"
+            },
+            "windspeed": {
+                "mps": "1.1",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "31"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "993.0"
+            }
+        },
+        {
+            "time": {
+                "from": 1562436000.0,
+                "to": 1562457600.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.2",
+            "winddirection": {
+                "deg": "234.4",
+                "code": "SW",
+                "name": "Southwest"
+            },
+            "windspeed": {
+                "mps": "1.8",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "28"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "995.8"
+            }
+        },
+        {
+            "time": {
+                "from": 1562457600.0,
+                "to": 1562479200.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.2",
+            "winddirection": {
+                "deg": "252.9",
+                "code": "WSW",
+                "name": "West-southwest"
+            },
+            "windspeed": {
+                "mps": "2.8",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "26"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "994.6"
+            }
+        },
+        {
+            "time": {
+                "from": 1562479200.0,
+                "to": 1562500800.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.1",
+            "winddirection": {
+                "deg": "270.6",
+                "code": "W",
+                "name": "West"
+            },
+            "windspeed": {
+                "mps": "2.3",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "31"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.0"
+            }
+        },
+        {
+            "time": {
+                "from": 1562500800.0,
+                "to": 1562522400.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "2.4",
+            "winddirection": {
+                "deg": "191.7",
+                "code": "SSW",
+                "name": "South-southwest"
+            },
+            "windspeed": {
+                "mps": "2.4",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "29"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "994.5"
+            }
+        },
+        {
+            "time": {
+                "from": 1562522400.0,
+                "to": 1562544000.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "10",
+                "numberex": "10",
+                "name": "Heavy rain",
+                "var": "10"
+            },
+            "precipitation": "16.5",
+            "winddirection": {
+                "deg": "214.3",
+                "code": "SW",
+                "name": "Southwest"
+            },
+            "windspeed": {
+                "mps": "2.9",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "997.5"
+            }
+        },
+        {
+            "time": {
+                "from": 1562544000.0,
+                "to": 1562565600.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "3.9",
+            "winddirection": {
+                "deg": "225.1",
+                "code": "SW",
+                "name": "Southwest"
+            },
+            "windspeed": {
+                "mps": "1.7",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.4"
+            }
+        },
+        {
+            "time": {
+                "from": 1562565600.0,
+                "to": 1562587200.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "4",
+                "numberex": "4",
+                "name": "Cloudy",
+                "var": "04"
+            },
+            "precipitation": "0",
+            "winddirection": {
+                "deg": "263.1",
+                "code": "W",
+                "name": "West"
+            },
+            "windspeed": {
+                "mps": "2.2",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "30"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "997.5"
+            }
+        },
+        {
+            "time": {
+                "from": 1562587200.0,
+                "to": 1562608800.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.3",
+            "winddirection": {
+                "deg": "193.8",
+                "code": "SSW",
+                "name": "South-southwest"
+            },
+            "windspeed": {
+                "mps": "1.4",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "31"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "994.9"
+            }
+        },
+        {
+            "time": {
+                "from": 1562608800.0,
+                "to": 1562630400.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "4",
+                "numberex": "4",
+                "name": "Cloudy",
+                "var": "04"
+            },
+            "precipitation": "0",
+            "winddirection": {
+                "deg": "163.8",
+                "code": "SSE",
+                "name": "South-southeast"
+            },
+            "windspeed": {
+                "mps": "2.4",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "28"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "997.5"
+            }
+        },
+        {
+            "time": {
+                "from": 1562630400.0,
+                "to": 1562652000.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "4",
+                "numberex": "4",
+                "name": "Cloudy",
+                "var": "04"
+            },
+            "precipitation": "0",
+            "winddirection": {
+                "deg": "213.0",
+                "code": "SSW",
+                "name": "South-southwest"
+            },
+            "windspeed": {
+                "mps": "2.1",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.6"
+            }
+        },
+        {
+            "time": {
+                "from": 1562652000.0,
+                "to": 1562673600.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "4.0",
+            "winddirection": {
+                "deg": "233.5",
+                "code": "SW",
+                "name": "Southwest"
+            },
+            "windspeed": {
+                "mps": "1.5",
+                "name": "Light air"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "32"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "997.4"
+            }
+        },
+        {
+            "time": {
+                "from": 1562673600.0,
+                "to": 1562695200.0,
+                "period": "3"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "4.4",
+            "winddirection": {
+                "deg": "130.0",
+                "code": "SE",
+                "name": "Southeast"
+            },
+            "windspeed": {
+                "mps": "1.7",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "30"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "995.2"
+            }
+        },
+        {
+            "time": {
+                "from": 1562695200.0,
+                "to": 1562716800.0,
+                "period": "0"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "1.2",
+            "winddirection": {
+                "deg": "151.5",
+                "code": "SSE",
+                "name": "South-southeast"
+            },
+            "windspeed": {
+                "mps": "2.2",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "27"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "998.1"
+            }
+        },
+        {
+            "time": {
+                "from": 1562716800.0,
+                "to": 1562738400.0,
+                "period": "1"
+            },
+            "symbol": {
+                "number": "5",
+                "numberex": "5",
+                "name": "Rain showers",
+                "var": "05d"
+            },
+            "precipitation": "1.3",
+            "winddirection": {
+                "deg": "123.5",
+                "code": "ESE",
+                "name": "East-southeast"
+            },
+            "windspeed": {
+                "mps": "2.3",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "26"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "997.0"
+            }
+        },
+        {
+            "time": {
+                "from": 1562738400.0,
+                "to": 1562760000.0,
+                "period": "2"
+            },
+            "symbol": {
+                "number": "9",
+                "numberex": "9",
+                "name": "Rain",
+                "var": "09"
+            },
+            "precipitation": "4.3",
+            "winddirection": {
+                "deg": "167.3",
+                "code": "SSE",
+                "name": "South-southeast"
+            },
+            "windspeed": {
+                "mps": "2.8",
+                "name": "Light breeze"
+            },
+            "temperature": {
+                "unit": "celsius",
+                "value": "30"
+            },
+            "pressue": {
+                "unit": "hPa",
+                "value": "996.8"
+            }
+        }
+    ]
+}
