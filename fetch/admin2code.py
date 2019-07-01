@@ -14,8 +14,10 @@ def fetchIt(target_file: str = abspath(join(dirname(__file__), '../data/admin2Co
             mkdir(dirname(target_file))
         with open(target_file, 'w') as fd:
             dump(
-                [{'admin2Code': code[0], 'name': code[1]} for code in (line.split('\t') for line in get(
-                    'http://download.geonames.org/export/dump/admin2Codes.txt').text.split('\n')[:-1])],
+                {
+                    'codes': [{'admin2Code': code[0], 'name': code[1]} for code in (line.split('\t') for line in get(
+                        'http://download.geonames.org/export/dump/admin2Codes.txt').text.split('\n')[:-1])]
+                },
                 fd,
                 ensure_ascii=False,
                 indent=4

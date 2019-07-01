@@ -24,8 +24,11 @@ def build(target_file=abspath(join(dirname(__file__), '../data/language.json')))
             # creates target data store directory, if that doesn't exists already
             mkdir(dirname(target_file))
         with open(target_file, mode='w') as fd:
-            fd.write(dumps([{'iso3': lang[0], 'iso': lang[2], 'name': lang[3]} for lang in (line.split('\t') for line in get('http://download.geonames.org/export/dump/iso-languagecodes.txt').text.split(
-                '\n')[1:-1])], indent=4, ensure_ascii=False))
+            fd.write(dumps(
+                {
+                    'languages': [{'iso3': lang[0], 'iso': lang[2], 'name': lang[3]} for lang in (line.split('\t') for line in get('http://download.geonames.org/export/dump/iso-languagecodes.txt').text.split(
+                        '\n')[1:-1])]
+                }, indent=4, ensure_ascii=False))
         code = {'success': 'true'}
     except Exception as e:
         code = {'error': str(e)}

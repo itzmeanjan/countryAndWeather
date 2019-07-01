@@ -25,35 +25,39 @@ And processed data will be stored in `data/country.json`.
 
 #### Example Data :
 ```json
-[
-    {
-        "iso": "AD",
-        "iso3": "AND",
-        "isoNumeric": "020",
-        "fips": "AN",
-        "country": "Andorra",
-        "capital": "Andorra la Vella",
-        "area(in sq km)": "468",
-        "population": "84000",
-        "continent": "EU",
-        "tld": ".ad",
-        "currencyCode": "EUR",
-        "currencyName": "Euro",
-        "phone": "376",
-        "postalFormat": "AD###",
-        "postalRegex": "^(?:AD)*(\\d{3})$",
-        "languages": [
-            "ca"
-        ],
-        "geonameid": "3041565",
-        "neighbours": [
-            "ES",
-            "FR"
-        ],
-        "equivalentFips": ""
-    },
-    { ...
-]
+{
+    "countries": [
+        {
+            "iso": "AD",
+            "iso3": "AND",
+            "isoNumeric": "020",
+            "fips": "AN",
+            "country": "Andorra",
+            "capital": "Andorra la Vella",
+            "area(in sq km)": "468",
+            "population": "84000",
+            "continent": "EU",
+            "tld": ".ad",
+            "currencyCode": "EUR",
+            "currencyName": "Euro",
+            "phone": "376",
+            "postalFormat": "AD###",
+            "postalRegex": "^(?:AD)*(\\d{3})$",
+            "languages": [
+                "ca"
+            ],
+            "geonameid": "3041565",
+            "neighbours": [
+                "ES",
+                "FR"
+            ],
+            "equivalentFips": ""
+        },
+        {
+
+        }
+    ]
+}
 ```
 ### grab Language Data :
 Well this step isn't mandatory, if you don't need this data set, you can simply ignore it. 
@@ -64,19 +68,23 @@ Well this step isn't mandatory, if you don't need this data set, you can simply 
 Fetches language records along with their code and name, stores it in `data/language.json`, which can be used for mapping Language Code to Name or reverse.
 #### Example Data :
 ```json
-[
-    {
-        "iso3": "aaa",
-        "iso": "",
-        "name": "Ghotuo"
-    },
-    {
-        "iso3": "aab",
-        "iso": "",
-        "name": "Alumu-Tesu"
-    },
-    { ...
-]
+{
+    "languages": [
+        {
+            "iso3": "aaa",
+            "iso": "",
+            "name": "Ghotuo"
+        },
+        {
+            "iso3": "aab",
+            "iso": "",
+            "name": "Alumu-Tesu"
+        },
+        {
+
+        }
+    ]
+}
 ```
 ### grab Admin Code Level 1 :
 We're interested in this dataset because finally we'll generate Weather Data fetching URL, which requires both `admin1Code` and `admin2Code` for a certain place.
@@ -87,13 +95,21 @@ We're interested in this dataset because finally we'll generate Weather Data fet
 Generated data set will be available in `data/admin1Code.json`
 #### Example Data :
 ```json
-[
-    {
-        "admin1Code": "AD.06",
-        "name": "Sant Julià de Loria"
-    },
-    { ...
-]
+{
+    "codes": [
+        {
+            "admin1Code": "AD.06",
+            "name": "Sant Julià de Loria"
+        },
+        {
+            "admin1Code": "AD.05",
+            "name": "Ordino"
+        },
+        {
+
+        }
+    ]
+}
 ```
 Seeing admin1Code dataset, you may have already understood, `admin1Code` field will be name period seperated.
 
@@ -118,48 +134,104 @@ We're interested in this dataset due to same reason depicted in previous section
 Fetched and processed dataset will be kept in `data/admin2Code.json`.
 #### Example Data :
 ```json
-[
-    {
-        "admin2Code": "AE.01.101",
-        "name": "Abu Dhabi Municipality"
-    },
-    { ...
-]
+{
+    "codes": [
+        {
+            "admin2Code": "AE.01.101",
+            "name": "Abu Dhabi Municipality"
+        },
+        {
+            "admin2Code": "AE.01.102",
+            "name": "Al Ain Municipality"
+        },
+        {
+
+        }
+    ]
+}
 ```
 We'll objectify both `data/admin1Code.json` and `data/admin2Code.json` records and use in next step while processing detailed place records.
 ### grab Detailed Place Record :
 Now we've Country Data, so we can proceed to fetch Detailed Place Records from GeoNames and store processed ( _required_ ) data as JSON in `data/XX.json` files, where XX denotes ISO-2 Code for a certain country ( _capitalized_ ).
 
-**Note :- This step will be a very time consuming operation. We'll fetch `252` countries detailed Place records _( more than `20M` place records to be processed )_ and then extract those for processing and finally storing as JSON in target file. So be patient :)**
+**Note :- This step includes a very time consuming operation. We'll fetch `252` countries detailed Place records _( more than `20M` place records to be processed )_ and then extract those for processing and finally storing as JSON in target file.**
 
 ```bash
 >> cd fetch
 >> python3 places.py
 ```
+Time taken :
+```bash
+{'success': 'true'}
+
+real	1227m48.254s
+user	1199m37.516s
+sys	3m8.032s
+```
+**So be patient :)**
+
 You may find one script `fetch/place.py`, this is basically doing all heavy liftings behind the scene, when you ran `fetch/places.py`. In `fetch/places.py` we start fetching detailed Place Record for each and every country iteratively. And decompression, processing for certain country's Places is done via methods present in `fetch/place.py`.
 #### Example Data :
 ```json
-[
-    {
-        "geonameid": "11945555",
-        "name": "Pavelló Joan Alay",
-        "alternateNames": [
-            "Pavello Joan Alay",
-            "Pavelló Joan Alay"
-        ],
-        "loc": "1.51674,42.50421",
-        "featureClass": "S",
-        "featureCode": "STDM",
-        "country": "Andorra",
-        "cc2": [],
-        "admin1Code": "Andorra la Vella",
-        "admin2Code": "",
-        "population": "0",
-        "elevation": "",
-        "tz": "Europe/Andorra"
-    },,
-    { ...
-]
-```
+{
+    "places": [
+        {
+            "geonameid": "11945555",
+            "name": "Pavelló Joan Alay",
+            "alternateNames": [
+                "Pavello Joan Alay",
+                "Pavelló Joan Alay"
+            ],
+            "loc": "1.51674,42.50421",
+            "featureClass": "S",
+            "featureCode": "STDM",
+            "country": "Andorra",
+            "cc2": [],
+            "admin1Code": "Andorra la Vella",
+            "admin2Code": "",
+            "population": "0",
+            "elevation": "",
+            "tz": "Europe/Andorra"
+        },
+        {
 
-**More to come ...**
+        }
+    ]
+}
+```
+### extract eligible Places :
+So now we've almost **20M+** records of places all over world. We'll require to filter out which among these places will be able to receive Weather Data from [Yr.no](http://yr.no)
+
+For this I've written a script `weather/extract.py` which will be iterating over all those country's detailed place record files, named as `XX.json`, and extract out those place records which has _name_, _couuntry_, _admin1Code_ & _admin2Code_ fields present. And finally generate _URL_, where it can query it's Weather.
+
+Generated data set will be stored in `data/weatherXX.json` for each of those Countries.
+```bash
+>> cd weather
+>> python3 extract.py
+```
+This one won't take longer.
+```bash
+Success
+
+real	6m3.095s
+user	4m48.007s
+sys	0m30.560s
+```
+#### Example Data :
+```json
+{
+    "places": [
+        {
+            "name": "Nchelenge District",
+            "url": "http://yr.no/place/Zambia/Luapula/Nchelenge_District/forecast.xml"
+        },
+        {
+            "name": "Mporokoso District",
+            "url": "http://yr.no/place/Zambia/Northern/Mporokoso_District/forecast.xml"
+        },
+        {
+
+        }
+    ]
+}
+```

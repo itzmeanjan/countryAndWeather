@@ -18,7 +18,7 @@ class Place:
         self.admin2Code = admin2Code
 
     @staticmethod
-    def fromJson(data: Dict(str, str)) -> Place:
+    def fromJson(data: Dict[str, str]) -> Place:
         '''
             Takes a JSON object i.e. python form of JSON object, and returns an intance of Place class, holding information of this place
         '''
@@ -42,11 +42,11 @@ class PlaceList:
         Holds a list of Place objects i.e. record of all places present in a certain country
     '''
 
-    def __init__(self, places: List(Place)):
+    def __init__(self, places: List[Place]):
         self.places = places
 
     @staticmethod
-    def fromJson(data: List(Dict(str, str))) -> PlaceList:
+    def fromJson(data: List[Dict[str, str]]) -> PlaceList:
         '''
             Converts JSON to PlaceList object
         '''
@@ -66,7 +66,7 @@ def importIt(target_file: str) -> PlaceList:
     try:
         with open(target_file, mode='r') as fd:
             placeListObj = PlaceList.fromJson(
-                load(fd)
+                load(fd).get('places', [])
             )
     except Exception as e:
         placeListObj = None

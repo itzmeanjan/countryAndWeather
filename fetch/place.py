@@ -37,8 +37,11 @@ def __process__(data: str, target_file: str, countryListObj: CountryList, admin1
     status = False
     try:
         with open(target_file, mode='w') as fd:
-            dump([{'geonameid': point[0], 'name': point[1], 'alternateNames': point[3].split(','), 'loc': '{},{}'.format(point[5], point[4]), 'featureClass': point[6], 'featureCode': point[7], 'country': countryListObj.getCountryByISO(point[8].upper()).country, 'cc2': [countryListObj.getCountryByISO(j.upper()).country for j in point[9].split(
-                ',') if(len(j) != 0)], 'admin1Code': __none_object_handler__(admin1CodeListObj.getRecordByCode('{}.{}'.format(point[8].upper(), point[10]))), 'admin2Code': __none_object_handler__(admin2CodeListObj.getRecordByCode('{}.{}.{}'.format(point[8].upper(), point[10], point[11]))), 'population': point[14], 'elevation': point[15], 'tz': point[17]} for point in (line.split('\t') for line in data.split('\n')[:-1])], fd, ensure_ascii=False, indent=4)
+            dump(
+                {
+                    'places': [{'geonameid': point[0], 'name': point[1], 'alternateNames': point[3].split(','), 'loc': '{},{}'.format(point[5], point[4]), 'featureClass': point[6], 'featureCode': point[7], 'country': countryListObj.getCountryByISO(point[8].upper()).country, 'cc2': [countryListObj.getCountryByISO(j.upper()).country for j in point[9].split(
+                        ',') if(len(j) != 0)], 'admin1Code': __none_object_handler__(admin1CodeListObj.getRecordByCode('{}.{}'.format(point[8].upper(), point[10]))), 'admin2Code': __none_object_handler__(admin2CodeListObj.getRecordByCode('{}.{}.{}'.format(point[8].upper(), point[10], point[11]))), 'population': point[14], 'elevation': point[15], 'tz': point[17]} for point in (line.split('\t') for line in data.split('\n')[:-1])]
+                }, fd, ensure_ascii=False, indent=4)
         status = True
     except Exception as e:
         pass

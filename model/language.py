@@ -19,7 +19,7 @@ class Language:
 
     @property
     def name(self):
-        if(self._countrySpecific):  
+        if(self._countrySpecific):
             return '{}-{}'.format(self._name, self._countrySpecific)
         else:
             return self._name
@@ -121,7 +121,7 @@ def importIt(target_file=abspath(join(dirname(__file__), '../language.json'))):
     '''
     try:
         with open(target_file, mode='r') as fd:
-            return LanguageList.fromJson(loads(fd.read()))
+            return LanguageList.fromJson(loads(fd.read()).get('languages', []))
     except Exception:
         return None
 

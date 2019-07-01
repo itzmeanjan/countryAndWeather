@@ -16,7 +16,7 @@ class Country:
         self.country = country
 
     @staticmethod
-    def fromJson(data: Dict(str, str)) -> Country:
+    def fromJson(data: Dict[str, str]) -> Country:
         '''
             Builds a Country object from deserialized JSON data i.e. Dict<K, V>
         '''
@@ -34,7 +34,7 @@ class CountryList:
         Holds record of all countries, helps in enquiring country record by using several properties ( though currently only ISO ;) )
     '''
 
-    def __init__(self, allCountry: List(Country)):
+    def __init__(self, allCountry: List[Country]):
         self.allCountry = allCountry
 
     def getCountryByISO(self, iso: str) -> Country:
@@ -53,7 +53,7 @@ class CountryList:
         return target
 
     @staticmethod
-    def fromJson(data: List(Dict(str, str))) -> CountryList:
+    def fromJson(data: List[Dict[str, str]]) -> CountryList:
         '''
             Builds a CountryList object from deserialized JSON data i.e. List<Dict<K, V>>
         '''
@@ -69,7 +69,7 @@ def importIt(target_file: str = abspath(join(dirname(realpath(__file__)), '../da
     '''
     try:
         with open(abspath(target_file), mode='r') as fd:
-            return CountryList.fromJson(loads(fd.read()))
+            return CountryList.fromJson(loads(fd.read()).get('countries', []))
     except Exception:
         return None
 

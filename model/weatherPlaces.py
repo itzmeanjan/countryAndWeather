@@ -59,7 +59,7 @@ def importIt(target_file: str) -> EligiblePlaceList:
     targetObj = None
     try:
         with open(target_file, mode='r') as fd:
-            targetObj = EligiblePlaceList.fromJson(load(fd))
+            targetObj = EligiblePlaceList.fromJson(load(fd).get("places", []))
     except Exception:
         targetObj = None
     finally:

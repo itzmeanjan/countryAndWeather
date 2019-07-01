@@ -34,31 +34,41 @@ def __handle_country__(placeListObj: PlaceList) -> List[Dict[str, str]]:
 
     try:
         return [{'name': elem.name, 'url': 'http://yr.no/place/{}/{}/{}/forecast.xml'.format('_'.join(elem.country.strip(' ').split(' ')), '_'.join(elem.admin1Code.strip(' ').split(' ')), '_'.join(elem.admin2Code.strip(' ').split(' ')))}
-                for elem in placeListObj.places if (__validate__(elem))]
+                for elem in placeListObj.places if (__validate__(elem))]  # URL generation is done here
     except Exception:
         return []
 
 
-def eligiblePlaceNames(target_file: str) -> bool:
+def eligiblePlaceNames() -> bool:
     '''
         Iterates over all place records, country by country, and returns boolean value to denote success or failure of desired operation
 
-        This will extract out all those places name and url, and store in provided JSON file
+        This will extract out all those places name and url, and store in JSON file for individual countries
     '''
     target = False
     try:
         countryListObj = countryListImport()
         if(not countryListObj):
             raise Exception('Failed to fetch Country List')
-        with open(target_file, mode='w') as fd:
-            dump(
-                [innerElem for elem in countryListObj.allCountry for innerElem in __handle_country__(placeListImport(
-                    abspath(join(dirname(__file__), '../data/{}.json'.format(elem.iso.upper())))))],
-                fd,
-                ensure_ascii=False,
-                indent=4
-            )
-        target = True
+        for elem in countryListObj.allCountry:
+            with open(abspath(
+                    join(
+                        dirname(__file__),
+                        '../data/weather{}.json'.format(elem.iso.upper())
+                    )), mode='w') as fd:
+                dump(
+                    {
+                        'places': __handle_country__(placeListImport(
+                            abspath(join(dirname(__file__), '../data/{}.json'.format(elem.iso.upper())))))
+                    },
+                    fd,
+                    ensure_ascii=False,
+                    indent=4
+                )
+            print(
+                '[+]{} ({}) -- `success`'.format(elem.country.capitalize(), elem.iso.upper()))
+        else:
+            target = True
     except Exception as e:
         target = False
     finally:
@@ -68,8 +78,7 @@ def eligiblePlaceNames(target_file: str) -> bool:
 if __name__ == '__main__':
     try:
         print(
-            'Success' if eligiblePlaceNames(target_file=abspath(
-                join(dirname(__file__), '../data/weather.json'))) else 'Failure'
+            'Success' if eligiblePlaceNames() else 'Failure'
         )
     except KeyboardInterrupt as e:
         print('\n[!]Terminated')

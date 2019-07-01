@@ -69,7 +69,7 @@ def importIt(target_file: str = abspath(join(dirname(__file__), '../data/admin1C
     try:
         with open(target_file, 'r') as fd:
             return Admin1CodeList.fromJSON(
-                loads(fd.read())
+                loads(fd.read()).get('codes', [])
             )
     except Exception as e:
         return None
