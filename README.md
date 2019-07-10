@@ -1,3 +1,5 @@
+<p align="center"><img src="/logo/logotype-horizontal.png"></p>
+
 # countryAndWeather
 A collection of scripts for grabbing and processing detailed Country/ Place Record & Weather Data for almost 6.36M places, written in Python with :heart:
 
