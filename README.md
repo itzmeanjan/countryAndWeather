@@ -484,5 +484,6 @@ Well make sure you pass target_file parameter has `*.png` form.
 ### courtesy :
 Weather Data is fetched from [Yr.no](http://yr.no/), so thanks to them for keeping this great service up. And feel free to check [T&C](https://hjelp.yr.no/hc/en-us/articles/360001946134-Data-access-and-terms-of-service).
 
+Last but not least, thanking [Tobaloidee](https://github.com/Tobaloidee) heartily, for designing logo for this project :wink:
 
 Hope this helps ;)
