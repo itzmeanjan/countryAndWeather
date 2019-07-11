@@ -11,8 +11,9 @@ class Country:
         This class will hold information about a certain country
     '''
 
-    def __init__(self, iso: str, country: str):
+    def __init__(self, iso: str, iso3: str, country: str):
         self.iso = iso
+        self.iso3 = iso3
         self.country = country
 
     @staticmethod
@@ -20,10 +21,12 @@ class Country:
         '''
             Builds a Country object from deserialized JSON data i.e. Dict<K, V>
         '''
-        _country = Country(*[None]*2)
+        _country = Country(*[None]*3)
         for key, value in data.items():
             if(key == 'iso'):
                 _country.iso = value
+            elif(key == 'iso3'):
+                _country.iso3 = value
             elif(key == 'country'):
                 _country.country = value
         return _country
